@@ -1,21 +1,8 @@
 import { useState, useEffect } from 'react';
 
 const fallbackProjects = [
-  {
-    id: 1,
-    name: "Real Estate Application",
-    description: "Built a MERN real estate management system with property listing, buying, and admin dashboard.",
-    language: "MERN Stack",
-    html_url: "https://github.com/kartikeya18-srivastava/Full-Stack-MERN-RealEstate-Application",
-    homepage: "https://quirexhousing.netlify.app/",
-  },
-  {
-    id: 2,
-    name: "Netflix Clone",
-    description: "A fully responsive front-end clone of Netflix using React.js with carousels, dark mode, and hover effects.",
-    language: "React.js",
-    html_url: "https://github.com/kartikeya18-srivastava/Netflix-Clone",
-  }
+  
+
 ];
 
 const Projects = () => {
