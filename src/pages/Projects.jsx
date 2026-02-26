@@ -17,6 +17,14 @@ const fallbackProjects = [
     html_url: 'https://github.com/kartikeya18-srivastava',
     homepage: 'https://quirexhousing.netlify.app/'
   },
+  {
+  id: 'fb-3',
+  name: 'Warehouse Dispatch Management System',
+  description: 'Developed a full-stack MERN-based warehouse and dispatch management system with inventory tracking, order processing, role-based authentication (JWT), Redis caching, email notifications (Nodemailer), and secure admin dashboard for real-time logistics monitoring.',
+  language: 'MERN Stack (MongoDB, Express.js, React.js, Node.js)',
+  html_url: 'https://github.com/kartikeya18-srivastava',
+  homepage: 'https://warehousing-dispatch.netlify.app/'
+},
 ];
 
 const Projects = () => {
