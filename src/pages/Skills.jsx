@@ -37,7 +37,7 @@ const Skills = () => {
             transition={{ delay: 0.5, duration: 0.8 }}
             className="h-1.5 bg-brand-purple mx-auto rounded-full shadow-[0_0_10px_rgba(0,180,216,0.5)]"
           ></motion.div>
-          <p className="mt-8 text-white/40 font-bold tracking-[0.4em] uppercase text-xs">Technical Execution Matrix</p>
+          <p className="mt-8 text-white/70 font-bold tracking-[0.4em] uppercase text-xs">Technical Execution Matrix</p>
         </motion.div>
 
         <div className="space-y-24">
@@ -70,7 +70,7 @@ const Skills = () => {
                     className="glass-card group relative p-6 rounded-2xl flex flex-col items-center justify-center text-center overflow-hidden h-full min-h-[100px] border border-white/5 hover:border-brand-light/40 transition-colors"
                     key={index}
                   >
-                    <span className="relative z-10 font-black tracking-widest text-white/50 group-hover:text-white transition-colors uppercase text-[10px]">
+                    <span className="relative z-10 font-black tracking-widest text-white/80 group-hover:text-white transition-colors uppercase text-[10px]">
                       {skill}
                     </span>
                     <div className="absolute inset-0 bg-gradient-to-br from-brand-light/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>

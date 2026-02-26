@@ -79,7 +79,7 @@ const Projects = () => {
             transition={{ delay: 0.5, duration: 0.8 }}
             className="h-1.5 bg-brand-purple mx-auto rounded-full shadow-[0_0_10px_rgba(0,180,216,0.5)]"
           ></motion.div>
-          <p className="mt-8 text-white/40 font-bold tracking-[0.4em] uppercase text-xs">Architectural Excellence Matrix</p>
+          <p className="mt-8 text-white/70 font-bold tracking-[0.4em] uppercase text-xs">Architectural Excellence Matrix</p>
         </motion.div>
 
         {loading ? (
@@ -105,11 +105,11 @@ const Projects = () => {
                       <span className="font-outfit text-xl font-bold italic">{String(index + 1).padStart(2, '0')}</span>
                     </div>
                     <div className="flex gap-4">
-                      <a href={repo.html_url} target="_blank" rel="noreferrer" className="text-white/40 hover:text-brand-light transition-colors">
+                      <a href={repo.html_url} target="_blank" rel="noreferrer" className="text-white/70 hover:text-brand-light transition-colors">
                         <FaGithub size={22} />
                       </a>
                       {repo.homepage && (
-                        <a href={repo.homepage} target="_blank" rel="noreferrer" className="text-white/40 hover:text-brand-light transition-colors">
+                        <a href={repo.homepage} target="_blank" rel="noreferrer" className="text-white/70 hover:text-brand-light transition-colors">
                           <FaExternalLinkAlt size={20} />
                         </a>
                       )}
@@ -126,7 +126,7 @@ const Projects = () => {
                 <div className="mt-auto pt-8 border-t border-white/5 space-y-8">
                   <div className="flex items-center gap-3">
                     <div className="w-2.5 h-2.5 rounded-full bg-brand-purple shadow-[0_0_10px_rgba(123,44,191,0.5)]"></div>
-                    <span className="text-[10px] font-black tracking-[0.2em] uppercase text-white/30 group-hover:text-brand-light transition-colors">
+                    <span className="text-[10px] font-black tracking-[0.2em] uppercase text-white/60 group-hover:text-brand-light transition-colors">
                       {repo.language || "Complex Engineering"}
                     </span>
                   </div>

@@ -17,7 +17,7 @@ const Contact = () => {
             Start Connection<span className="text-brand-light">.</span>
             <div className="absolute -bottom-4 left-0 w-full h-[8px] bg-brand-purple/20 blur-md shadow-[0_0_10px_rgba(0,180,216,0.5)]"></div>
           </h2>
-          <p className="font-inter text-lg md:text-2xl text-white/40 max-w-2xl mx-auto leading-relaxed italic">
+          <p className="font-inter text-lg md:text-2xl text-white/70 max-w-2xl mx-auto leading-relaxed italic">
             Available for ambitious collaborations, full-stack architecture, or high-performance engineering inquiries.
           </p>
         </motion.div>
@@ -62,7 +62,7 @@ const Contact = () => {
                   <span className="text-4xl text-white/30 group-hover:text-brand-light transition-colors transform group-hover:scale-125 duration-500 relative z-10">
                     {item.icon}
                   </span>
-                  <span className="font-outfit text-[10px] font-black tracking-[0.4em] uppercase text-white/10 group-hover:text-brand-light/40 transition-colors relative z-10">
+                  <span className="font-outfit text-[10px] font-black tracking-[0.4em] uppercase text-white/40 group-hover:text-brand-light transition-colors relative z-10">
                     {item.label}
                   </span>
                   <div className="absolute inset-0 bg-brand-purple/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
@@ -75,7 +75,7 @@ const Contact = () => {
                   <span className="text-4xl text-white/30 group-hover:text-brand-light transition-colors transform group-hover:scale-125 duration-500 relative z-10">
                     {item.icon}
                   </span>
-                  <span className="font-outfit text-[10px] font-black tracking-[0.4em] uppercase text-white/10 group-hover:text-brand-light/40 transition-colors relative z-10">
+                  <span className="font-outfit text-[10px] font-black tracking-[0.4em] uppercase text-white/40 group-hover:text-brand-light transition-colors relative z-10">
                     {item.label}
                   </span>
                   <div className="absolute inset-0 bg-brand-purple/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>

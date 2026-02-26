@@ -66,7 +66,7 @@ const Home = () => {
           transition={{ delay: 1, duration: 0.5 }}
           className="mb-8 min-h-[40px] flex items-center gap-3 font-inter text-xl md:text-3xl text-white font-bold tracking-tight"
         >
-          <span className="text-white/40 font-medium italic">Building</span>
+          <span className="text-white/70 font-medium italic">Building</span>
           <span className="text-white">
             {text}
           </span>
