@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
+import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 
 const fallbackProjects = [
   {
@@ -18,13 +20,13 @@ const fallbackProjects = [
     homepage: 'https://quirexhousing.netlify.app/'
   },
   {
-  id: 'fb-3',
-  name: 'Warehouse Dispatch Management System',
-  description: 'Developed a full-stack MERN-based warehouse and dispatch management system with inventory tracking, order processing, role-based authentication (JWT), Redis caching, email notifications (Nodemailer), and secure admin dashboard for real-time logistics monitoring.',
-  language: 'MERN Stack (MongoDB, Express.js, React.js, Node.js)',
-  html_url: 'https://github.com/kartikeya18-srivastava',
-  homepage: 'https://warehousing-dispatch.netlify.app/'
-},
+    id: 'fb-3',
+    name: 'Warehouse Dispatch Management System',
+    description: 'Developed a full-stack MERN-based warehouse and dispatch management system with inventory tracking, order processing, role-based authentication (JWT), Redis caching, email notifications (Nodemailer), and secure admin dashboard for real-time logistics monitoring.',
+    language: 'MERN Stack',
+    html_url: 'https://github.com/kartikeya18-srivastava',
+    homepage: 'https://warehousing-dispatch.netlify.app/'
+  },
 ];
 
 const Projects = () => {
@@ -59,76 +61,107 @@ const Projects = () => {
   }, []);
 
   return (
-    <div id="projects" className="relative p-6 md:p-24 py-20 md:py-32 text-white font-poppins overflow-hidden">
+    <section id="projects" className="relative p-6 md:p-24 py-24 md:py-32 text-white font-poppins overflow-hidden">
       <div className="max-w-7xl mx-auto flex flex-col items-center">
-        <div className="text-center mb-24 relative">
-          <h2 className="font-outfit text-5xl md:text-7xl font-extrabold tracking-tighter mb-4">
-            Creations<span className="text-brand-purple">.</span>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          className="text-center mb-24 relative"
+        >
+          <h2 className="font-outfit text-5xl md:text-7xl font-extrabold tracking-tight mb-4 uppercase">
+            Creations<span className="text-brand-light">.</span>
           </h2>
-          <div className="h-1 w-20 bg-brand-purple mx-auto rounded-full"></div>
-          <p className="mt-6 text-white-muted font-inter tracking-widest uppercase text-sm">Archive of architectural excellence</p>
-        </div>
+          <motion.div
+            initial={{ width: 0 }}
+            whileInView={{ width: 80 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.5, duration: 0.8 }}
+            className="h-1.5 bg-brand-purple mx-auto rounded-full shadow-[0_0_10px_rgba(0,180,216,0.5)]"
+          ></motion.div>
+          <p className="mt-8 text-white/40 font-bold tracking-[0.4em] uppercase text-xs">Architectural Excellence Matrix</p>
+        </motion.div>
 
         {loading ? (
-          <div className="flex flex-col items-center gap-4 mt-12">
-            <div className="w-12 h-12 border-4 border-brand-purple/20 border-t-brand-purple rounded-full animate-spin"></div>
-            <p className="text-brand-light font-medium tracking-widest uppercase text-xs animate-pulse">Syncing with GitHub</p>
+          <div className="flex flex-col items-center gap-6 mt-12">
+            <div className="w-16 h-16 border-4 border-brand-purple/20 border-t-brand-purple rounded-full animate-spin shadow-[0_0_15px_rgba(0,180,216,0.3)]"></div>
+            <p className="text-brand-light font-bold tracking-[0.2em] uppercase text-xs animate-pulse">Syncing Repository Engine</p>
           </div>
         ) : (
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-10 w-full">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full">
             {repos.map((repo, index) => (
-              <div
-                className="glass-card group relative p-10 rounded-[2.5rem] flex flex-col h-full animate-reveal opacity-0"
-                style={{ animationDelay: `${index * 50}ms` }}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ delay: (index % 3) * 0.1 }}
+                whileHover={{ y: -10, boxShadow: '0 0 30px rgba(0,180,216,0.15)' }}
+                className="glass-card group relative p-8 md:p-10 rounded-[2.5rem] flex flex-col h-full transition-all duration-500 border border-white/5 hover:border-brand-purple/50"
                 key={repo.id || index}
               >
-                <div className="mb-6">
-                  <div className="w-12 h-12 rounded-2xl bg-brand-purple/10 flex items-center justify-center text-brand-light group-hover:bg-brand-purple group-hover:text-white transition-all duration-500 mb-6">
-                    <span className="font-outfit text-xl font-bold">{index + 1}</span>
+                <div className="mb-8">
+                  <div className="flex justify-between items-start mb-8">
+                    <div className="w-12 h-12 rounded-2xl bg-brand-purple/10 flex items-center justify-center text-brand-light group-hover:bg-brand-purple group-hover:text-white transition-all duration-500">
+                      <span className="font-outfit text-xl font-bold italic">{String(index + 1).padStart(2, '0')}</span>
+                    </div>
+                    <div className="flex gap-4">
+                      <a href={repo.html_url} target="_blank" rel="noreferrer" className="text-white/40 hover:text-brand-light transition-colors">
+                        <FaGithub size={22} />
+                      </a>
+                      {repo.homepage && (
+                        <a href={repo.homepage} target="_blank" rel="noreferrer" className="text-white/40 hover:text-brand-light transition-colors">
+                          <FaExternalLinkAlt size={20} />
+                        </a>
+                      )}
+                    </div>
                   </div>
                   <h3 className="font-outfit text-2xl md:text-3xl font-bold mb-4 tracking-tight group-hover:text-brand-light transition-colors duration-300">
                     {repo.name.replace(/-/g, ' ').replace(/_/g, ' ')}
                   </h3>
-                  <p className="font-inter text-white-muted leading-relaxed group-hover:text-white/90 transition-colors">
-                    {repo.description || "Architecting the future with precision, scalability, and premium performance."}
+                  <p className="font-inter text-white-muted leading-relaxed group-hover:text-white/90 transition-colors line-clamp-3">
+                    {repo.description || "Developing future-ready digital solutions with robust architectural foundations and premium aesthetics."}
                   </p>
                 </div>
 
-                <div className="mt-auto space-y-8">
-                  <div className="flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-brand-purple"></span>
-                    <span className="text-xs font-bold tracking-widest uppercase text-white/40 group-hover:text-brand-light transition-colors">
-                      {repo.language || "Complex Web Architecture"}
+                <div className="mt-auto pt-8 border-t border-white/5 space-y-8">
+                  <div className="flex items-center gap-3">
+                    <div className="w-2.5 h-2.5 rounded-full bg-brand-purple shadow-[0_0_10px_rgba(123,44,191,0.5)]"></div>
+                    <span className="text-[10px] font-black tracking-[0.2em] uppercase text-white/30 group-hover:text-brand-light transition-colors">
+                      {repo.language || "Complex Engineering"}
                     </span>
                   </div>
 
-                  <div className="flex items-center gap-4">
+                  <div className="grid grid-cols-2 gap-4">
                     <a
                       href={repo.html_url}
                       target="_blank"
                       rel="noreferrer"
-                      className="flex-grow text-center px-6 py-3 bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl font-bold text-sm tracking-wide transition-all"
+                      className="text-center py-4 bg-white/5 hover:bg-white/10 border border-white/10 rounded-2xl font-bold text-[10px] tracking-[0.2em] uppercase transition-all"
                     >
-                      Source Code
+                      Github
                     </a>
-                    {repo.homepage && (
+                    {repo.homepage ? (
                       <a
                         href={repo.homepage}
                         target="_blank"
                         rel="noreferrer"
-                        className="px-6 py-3 bg-brand-purple hover:bg-brand-light rounded-xl font-bold text-sm tracking-wide shadow-[0_10px_20px_rgba(123,44,191,0.2)] transition-all"
+                        className="text-center py-4 bg-brand-purple hover:bg-brand-light rounded-2xl font-bold text-[10px] tracking-[0.2em] uppercase shadow-[0_10px_20px_rgba(123,44,191,0.2)] transition-all"
                       >
-                        Live Demo
+                        Deploy
                       </a>
+                    ) : (
+                      <div className="py-4 bg-white/5 rounded-2xl font-bold text-[10px] tracking-[0.2em] uppercase text-white/20 text-center opacity-50 cursor-not-allowed">
+                        N/A
+                      </div>
                     )}
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         )}
       </div>
-    </div>
+    </section>
   );
 };
 

@@ -22,17 +22,27 @@ function App() {
   return (
     <div className="bg-black min-h-screen selection:bg-brand-purple selection:text-white overflow-x-hidden">
       <div className="mesh-bg"></div>
+
+      {/* Dynamic Cursor Glow with smooth lag */}
       <div
-        className="cursor-glow hidden md:block"
-        style={{ left: cursorPos.x, top: cursorPos.y }}
+        className="cursor-glow hidden md:block fixed pointer-events-none transition-all duration-300 ease-out"
+        style={{
+          left: cursorPos.x,
+          top: cursorPos.y,
+          transform: `translate(-50%, -50%)`,
+          background: 'radial-gradient(circle, rgba(123, 44, 191, 0.1) 0%, transparent 70%)'
+        }}
       ></div>
+
       <BrowserRouter>
         <Navbar />
-        <Home />
-        <Skills />
-        <Projects />
-        <About />
-        <Contact />
+        <main className="relative">
+          <Home />
+          <Skills />
+          <Projects />
+          <About />
+          <Contact />
+        </main>
       </BrowserRouter>
     </div>
   )

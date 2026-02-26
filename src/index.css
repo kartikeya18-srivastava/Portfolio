@@ -5,12 +5,13 @@
     --font-outfit: 'Outfit', sans-serif;
     --font-inter: 'Inter', sans-serif;
 
-    /* Refined Color System for "Perfection" */
-    --color-brand-purple: #8a2be2;
-    --color-brand-light: #bf95f9;
-    --color-brand-dark: #0a021a;
-    --color-white-muted: rgba(255, 255, 255, 0.7);
-    --color-white-subtle: rgba(255, 255, 255, 0.4);
+    /* Midnight Cyber Color System */
+    --color-brand-purple: #00b4d8;
+    --color-brand-light: #00f5d4;
+    --color-brand-accent: #caf0f8;
+    --color-brand-dark: #03045e;
+    --color-white-muted: rgba(255, 255, 255, 0.6);
+    --color-white-subtle: rgba(255, 255, 255, 0.3);
 }
 
 html {

@@ -1,12 +1,22 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
 
-  const handleScroll = (id) => {
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const handleScrollTo = (id) => {
     setMenuOpen(false);
 
     const scrollToSection = () => {
@@ -20,22 +30,31 @@ const Navbar = () => {
       scrollToSection();
     } else {
       navigate('/');
-      setTimeout(() => {
-        scrollToSection();
-      }, 200);
+      setTimeout(scrollToSection, 200);
     }
   };
 
+  const navLinks = [
+    { name: 'Home', id: 'home' },
+    { name: 'Skills', id: 'skills' },
+    { name: 'Creations', id: 'projects' },
+    { name: 'Mission', id: 'about' },
+    { name: 'Connect', id: 'contact' },
+  ];
+
   return (
-    <nav className="fixed top-0 w-full z-[999] px-6 md:px-16 py-3 transition-all duration-500 glass border-b border-white/5 bg-black/10 backdrop-blur-xl">
-      <div className="max-w-7xl mx-auto flex justify-between items-center text-white">
+    <nav className={`fixed top-0 w-full z-[999] transition-all duration-500 py-4 ${scrolled ? 'bg-black/60 backdrop-blur-xl border-b border-white/10' : 'bg-transparent'
+      }`}>
+      <div className="max-w-7xl mx-auto px-6 md:px-16 flex justify-between items-center text-white">
         <Link
           to="/"
-          onClick={(e) => { e.preventDefault(); handleScroll('home'); }}
+          onClick={(e) => { e.preventDefault(); handleScrollTo('home'); }}
           className="group flex items-center gap-3"
         >
           <div className="relative">
-            <img src="/assets/logo.png" alt="Logo" className="h-[45px] md:h-[55px] w-auto relative z-10 transition-transform duration-500 group-hover:scale-110" />
+            <div className="h-[40px] w-[40px] md:h-[50px] md:w-[50px] bg-brand-purple rounded-xl flex items-center justify-center font-outfit font-black text-2xl md:text-3xl group-hover:rotate-12 transition-transform duration-500 shadow-[0_0_20px_rgba(0,180,216,0.3)]">
+              K
+            </div>
             <div className="absolute inset-0 bg-brand-purple blur-md opacity-20 group-hover:opacity-40 transition-opacity"></div>
           </div>
           <span className="font-outfit text-xl md:text-2xl font-bold tracking-tight">
@@ -44,16 +63,16 @@ const Navbar = () => {
         </Link>
 
         {/* Desktop Links */}
-        <div className="hidden md:flex items-center gap-10">
-          {['home', 'skills', 'projects', 'about', 'contact'].map((id) => (
+        <div className="hidden md:flex items-center gap-2">
+          {navLinks.map((link) => (
             <Link
-              key={id}
+              key={link.id}
               to="/"
-              onClick={(e) => { e.preventDefault(); handleScroll(id); }}
-              className="font-outfit text-sm font-medium tracking-widest uppercase relative py-2 transition-colors duration-300 hover:text-brand-light group overflow-hidden"
+              onClick={(e) => { e.preventDefault(); handleScrollTo(link.id); }}
+              className="px-6 py-2 font-outfit text-xs font-bold tracking-[0.2em] uppercase relative transition-all duration-300 hover:text-brand-light group"
             >
-              {id}
-              <span className="absolute bottom-0 left-0 w-full h-[2px] bg-brand-purple transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-right group-hover:origin-left"></span>
+              <span className="relative z-10">{link.name}</span>
+              <span className="absolute bottom-0 left-0 w-full h-[0px] bg-brand-purple/20 group-hover:h-full transition-all duration-300 -z-0"></span>
             </Link>
           ))}
         </div>
@@ -72,20 +91,36 @@ const Navbar = () => {
       </div>
 
       {/* Mobile Menu */}
-      <div className={`fixed inset-0 bg-brand-dark/95 backdrop-blur-2xl md:hidden transition-all duration-500 ${menuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
-        <div className="flex flex-col items-center justify-center h-full gap-8">
-          {['home', 'skills', 'projects', 'about', 'contact'].map((id) => (
-            <Link
-              key={id}
-              to="/"
-              onClick={(e) => { e.preventDefault(); handleScroll(id); }}
-              className="font-outfit text-2xl font-bold tracking-widest uppercase hover:text-brand-light transition-colors"
-            >
-              {id}
-            </Link>
-          ))}
-        </div>
-      </div>
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.div
+            initial={{ opacity: 0, x: '100%' }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: '100%' }}
+            transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+            className="fixed inset-0 bg-brand-dark/98 backdrop-blur-2xl md:hidden z-40"
+          >
+            <div className="flex flex-col items-center justify-center h-full gap-10">
+              {navLinks.map((link, idx) => (
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.1 * idx }}
+                  key={link.id}
+                >
+                  <Link
+                    to="/"
+                    onClick={(e) => { e.preventDefault(); handleScrollTo(link.id); }}
+                    className="font-outfit text-3xl font-black tracking-widest uppercase hover:text-brand-light transition-colors block text-center"
+                  >
+                    {link.name}
+                  </Link>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   );
 };

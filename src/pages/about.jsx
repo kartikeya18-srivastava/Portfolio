@@ -10,7 +10,7 @@ const About = () => {
             <img
               src={myImage}
               alt="Kartikeya Srivastava"
-              className="w-[260px] h-[260px] md:w-[400px] md:h-[400px] object-cover rounded-3xl border border-white/10 shadow-2xl animate-float"
+              className="w-full h-auto max-h-[400px] md:max-h-[450px] object-contain rounded-3xl border border-white/10 shadow-2xl animate-float"
             />
             {/* Decorative frame */}
             <div className="absolute -inset-4 border-2 border-brand-purple/20 rounded-[2.5rem] -z-10 animate-pulse"></div>
@@ -32,25 +32,25 @@ const About = () => {
           <div className="space-y-8">
             <div className="glass-card p-8 rounded-3xl border border-white/5 hover:bg-white/5 transition-all group">
               <p className="font-inter text-lg md:text-xl text-white/80 leading-relaxed">
-                I'm <strong className="text-brand-light font-bold">Kartikeya Srivastava</strong>, a Computer Science visionary from RKGIT, Ghaziabad. My work sits at the intersection of <span className="text-white">mathematical precision</span> and <span className="text-white">creative digital architecting</span>.
+                I'm <strong className="text-brand-light font-bold">Kartikeya Srivastava</strong>, an ambitious Full-Stack Engineer from RKGIT, Ghaziabad. I bridge the gap between <span className="text-white font-semibold">robust backend logic</span> and <span className="text-white font-semibold">seamless digital experiences</span>.
               </p>
             </div>
 
             <div className="glass-card p-8 rounded-3xl border border-white/5 hover:bg-white/5 transition-all">
               <p className="font-inter text-lg md:text-xl text-white/70 leading-relaxed">
-                I specialize in engineering systems that aren't just functional, but <span className="text-white">impactful</span>. From React-driven interfaces to Python-powered backends, I build with a focus on future-scale and human interaction.
+                Driven by technical excellence, I craft high-performance systems and interactive interfaces. Whether it's architecting scalable Python backends or dynamic React frontends, my focus remains on <span className="text-white font-semibold">innovation, efficiency, and user-centric design</span>.
               </p>
             </div>
 
             <div className="flex items-center gap-6 mt-12 pl-4">
               <div className="flex flex-col">
                 <span className="font-outfit text-3xl font-black text-brand-light">2+</span>
-                <span className="font-inter text-xs font-bold tracking-widest uppercase text-white/40">Projects Built</span>
+                <span className="font-inter text-xs font-bold tracking-widest uppercase text-white/60">Projects Built</span>
               </div>
               <div className="h-10 w-[1px] bg-white/10"></div>
               <div className="flex flex-col">
                 <span className="font-outfit text-3xl font-black text-brand-light">10+</span>
-                <span className="font-inter text-xs font-bold tracking-widest uppercase text-white/40">Tech Stack</span>
+                <span className="font-inter text-xs font-bold tracking-widest uppercase text-white/60">Tech Stack</span>
               </div>
             </div>
           </div>
