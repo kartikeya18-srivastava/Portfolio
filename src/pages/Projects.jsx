@@ -1,8 +1,22 @@
 import { useState, useEffect } from 'react';
 
 const fallbackProjects = [
-  
-
+  {
+    id: 'fb-1',
+    name: 'Digital Blood Bank',
+    description: 'A comprehensive full-stack platform for managing blood donations, inventory, and real-time requests with premium UI.',
+    language: 'MERN Stack',
+    html_url: 'https://github.com/kartikeya18-srivastava',
+    homepage: 'https://digital-blood-bank.netlify.app/'
+  },
+  {
+    id: 'fb-2',
+    name: 'Real Estate Application',
+    description: 'Built a MERN real estate management system with property listing, buying, and admin dashboard.',
+    language: 'MERN Stack',
+    html_url: 'https://github.com/kartikeya18-srivastava',
+    homepage: 'https://quirexhousing.netlify.app/'
+  },
 ];
 
 const Projects = () => {
@@ -17,7 +31,15 @@ const Projects = () => {
           throw new Error('Using local data');
         }
         const data = await response.json();
-        const githubRepos = data.filter(repo => !fallbackProjects.some(fb => fb.name.toLowerCase() === repo.name.toLowerCase()));
+
+        // Helper to normalize strings for robust comparison
+        const normalize = (str) => str?.toLowerCase().replace(/[-_\s]/g, '') || '';
+
+        const localNames = fallbackProjects.map(p => normalize(p.name));
+
+        // Filter GitHub repos that aren't already in our fallback list
+        const githubRepos = data.filter(repo => !localNames.includes(normalize(repo.name)));
+
         setRepos([...fallbackProjects, ...githubRepos]);
       } catch (err) {
         setRepos(fallbackProjects);
@@ -49,8 +71,8 @@ const Projects = () => {
             {repos.map((repo, index) => (
               <div
                 className="glass-card group relative p-10 rounded-[2.5rem] flex flex-col h-full animate-reveal opacity-0"
-                style={{ animationDelay: `${index * 100}ms` }}
-                key={repo.id}
+                style={{ animationDelay: `${index * 50}ms` }}
+                key={repo.id || index}
               >
                 <div className="mb-6">
                   <div className="w-12 h-12 rounded-2xl bg-brand-purple/10 flex items-center justify-center text-brand-light group-hover:bg-brand-purple group-hover:text-white transition-all duration-500 mb-6">
