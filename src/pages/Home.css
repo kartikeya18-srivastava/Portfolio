@@ -1,0 +1,124 @@
+.home {
+  background: radial-gradient(ellipse at top left, #0f0526, #000);
+  min-height: 100vh;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4rem;
+  font-family: 'Poppins', sans-serif;
+  overflow: hidden;
+}
+
+.home__content {
+  max-width: 50%;
+}
+
+.home__content h1 {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+
+.home__content p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  max-width: 600px;
+}
+
+.home__image img {
+  width: 350px;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid #7b2cbf;
+  box-shadow: 0 0 40px #7b2cbf88;
+  animation: float 3s ease-in-out infinite;
+}
+
+.connect-btn {
+  margin-top: 2rem;
+  display: inline-block;
+  background: #fff;
+  color: #000;
+  padding: 0.75rem 1.5rem;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s ease;
+}
+
+.connect-btn:hover {
+  background: #7b2cbf;
+  color: #fff;
+}
+
+.tagline {
+  background: #7b2cbf;
+  color: white;
+  font-weight: bold;
+  padding: 0.4rem 1rem;
+  border-radius: 4px;
+  border: none;
+  margin-bottom: 1rem;
+}
+.resume-btn {
+  background: transparent;
+  border: 2px solid #fff;
+  color: #fff;
+}
+
+.resume-btn:hover {
+  background: #7b2cbf;
+  border-color: #7b2cbf;
+  color: #fff;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+.typing-text {
+  font-size: 2.8rem;
+  font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid #7b2cbf;
+  width: 0;
+  animation: typing-erase 6s steps(28, end) infinite, blink 0.75s step-end infinite;
+}
+
+/* Typing + instant erase */
+@keyframes typing-erase {
+  0% {
+    width: 0;
+  }
+  40% {
+    width: 28ch;
+  }
+  60% {
+    width: 28ch;
+  }
+  80% {
+    width: 0;
+  }
+  100% {
+    width: 0;
+  }
+}
+
+/* Blinking cursor */
+@keyframes blink {
+  0%, 100% {
+    border-color: transparent;
+  }
+  50% {
+    border-color: #7b2cbf;
+  }
+}
+

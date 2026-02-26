@@ -1,0 +1,87 @@
+.about {
+  background: radial-gradient(ellipse at center, #0f0526, #000);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4rem;
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  
+}
+
+.about__image img {
+  width: 350px;
+  height: 350px;
+  margin-right: 40px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid #7b2cbf;
+  box-shadow: 0 0 40px #7b2cbf88;
+  animation: float 3s ease-in-out infinite;
+}
+
+.about__content {
+  max-width: 55%;
+  line-height: 1.8;
+}
+
+.about__content h1 {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+}
+
+.about__content p {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.about__typing {
+  display: inline-block;
+  font-size: 2.8rem;
+  font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid #7b2cbf;
+  text-decoration: underline;
+  animation: about-typing-erase 4s steps(11, end) infinite, about-blink 0.75s step-end infinite;
+  margin-bottom: 3rem;
+}
+
+/* Typing effect */
+@keyframes about-typing-erase {
+  0% {
+    width: 0;
+  }
+  40% {
+    width: 9ch; /* "About Me" */
+  }
+  60% {
+    width: 9ch;
+  }
+  80% {
+    width: 0;
+  }
+  100% {
+    width: 0;
+  }
+}
+
+@keyframes about-blink {
+  0%, 100% {
+    border-color: transparent;
+  }
+  50% {
+    border-color: #7b2cbf;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+

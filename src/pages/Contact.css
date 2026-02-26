@@ -1,0 +1,53 @@
+.contact {
+  background: radial-gradient(ellipse at bottom right, #0f0526, #000);
+  padding: 6rem 4rem;
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  
+}
+
+.contact__heading {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 0 10px #7b2cbf88;
+}
+
+.contact__text {
+  font-size: 1.1rem;
+  max-width: 710px;
+  margin: 0 auto 2.5rem;
+  line-height: 1.7;
+}
+
+.contact__links {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 1.2rem;
+  align-items: center;
+}
+
+.contact__links a {
+  color: #fff;
+  text-decoration: none;
+  background: #7b2cbf;
+  padding: 0.75rem 1.5rem;
+  border-radius: 30px;
+  font-weight: bold;
+  transition: background 0.3s ease, transform 0.3s ease;
+  
+}
+
+.contact__links a:hover {
+  background: #a885f9;
+  transform: scale(1.05);
+}
+
+/* Mobile tweaks */
+@media (max-width: 600px) {
+  .contact__links a {
+    width: 90%;
+    text-align: center;
+  }
+}

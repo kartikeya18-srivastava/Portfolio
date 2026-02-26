@@ -1,0 +1,140 @@
+.projects {
+  background: radial-gradient(ellipse at center, #0f0526, #000);
+  padding: 6rem 4rem;
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+  min-height: 100vh;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.projects__typing {
+  color: #fff;
+  display: inline-block;
+  font-size: 2.8rem;
+  font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid #7b2cbf;
+  text-decoration: underline;
+  animation: projects-typing-erase 4s steps(11, end) infinite, projects-blink 0.75s step-end infinite;
+  margin-bottom: 3rem;
+}
+
+/* Typing effect */
+@keyframes projects-typing-erase {
+  0% {
+    width: 0;
+  }
+  40% {
+    width: 11ch; /* "My Projects" */
+  }
+  60% {
+    width: 11ch;
+  }
+  80% {
+    width: 0;
+  }
+  100% {
+    width: 0;
+  }
+}
+
+@keyframes projects-blink {
+  0%, 100% {
+    border-color: transparent;
+  }
+  50% {
+    border-color: #7b2cbf;
+  }
+}
+
+.projects__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  width: 100%;
+  max-width: 1100px;
+  padding: 0 1rem;
+}
+
+.loading-text, .error-text {
+  font-size: 1.2rem;
+  margin-top: 2rem;
+  color: #a885f9;
+}
+
+.error-text {
+  color: #ff4d4d;
+}
+
+.project__card {
+  background: rgba(26, 9, 51, 0.9);
+  border: 1px solid #7b2cbf44;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 0 12px #7b2cbf33;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: left;
+}
+
+.project__card h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #7b2cbf;
+}
+
+.project__card p {
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+.project__card strong {
+  color: #a885f9;
+}
+
+.project__links {
+  margin-top: 1rem;
+}
+
+.project__links a {
+  color: #fff;
+  background-color: #7b2cbf;
+  padding: 0.5rem 1rem;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.project__links a:hover {
+  background-color: #a885f9;
+}
+
+/* Hover effect */
+.project__card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 24px #7b2cbf;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .projects {
+    padding: 4rem 2rem;
+  }
+
+  .projects__typing {
+    font-size: 2rem;
+  }
+
+  .project__card {
+    text-align: center;
+  }
+
+  .project__card h2 {
+    font-size: 1.3rem;
+  }
+}
+
