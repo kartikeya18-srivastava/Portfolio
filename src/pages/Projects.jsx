@@ -8,7 +8,7 @@ const fallbackProjects = [
     name: 'Digital Blood Bank',
     description: 'A comprehensive full-stack platform for managing blood donations, inventory, and real-time requests with premium UI.',
     language: 'MERN Stack',
-    html_url: 'https://github.com/kartikeya18-srivastava',
+    html_url: 'https://github.com/kartikeya18-srivastava/Blood-Bank',
     homepage: 'https://digital-blood-bank.netlify.app/'
   },
   {
@@ -16,7 +16,7 @@ const fallbackProjects = [
     name: 'Real Estate Application',
     description: 'Built a MERN real estate management system with property listing, buying, and admin dashboard.',
     language: 'MERN Stack',
-    html_url: 'https://github.com/kartikeya18-srivastava',
+    html_url: 'https://github.com/kartikeya18-srivastava/Full-Stack-MERN-RealEstate-Application',
     homepage: 'https://quirexhousing.netlify.app/'
   },
   {
@@ -24,7 +24,7 @@ const fallbackProjects = [
     name: 'Warehouse Dispatch Management System',
     description: 'Developed a full-stack MERN-based warehouse and dispatch management system with inventory tracking, order processing, role-based authentication (JWT), Redis caching, email notifications (Nodemailer), and secure admin dashboard for real-time logistics monitoring.',
     language: 'MERN Stack',
-    html_url: 'https://github.com/kartikeya18-srivastava',
+    html_url: 'https://github.com/kartikeya18-srivastava/Warehouse-Dispatch',
     homepage: 'https://warehousing-dispatch.netlify.app/'
   },
 ];
