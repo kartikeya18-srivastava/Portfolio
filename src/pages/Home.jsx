@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 
 const Home = () => {
   const [text] = useTypewriter({
-    words: ['Python Enthusiast', 'Full-Stack Developer', 'UI/UX Architect', 'MERN Specialist'],
+    words: ['Full-Stack Developer','React.js & Node.js Developer', 'UI/UX Architect', 'MERN Stack Developer'],
     loop: 0,
     typeSpeed: 70,
     deleteSpeed: 50,
