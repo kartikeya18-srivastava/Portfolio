@@ -102,14 +102,15 @@ const Home = () => {
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-shimmer"></div>
           </Link>
 
-          <Link
-            to="https://drive.google.com/file/d/1OlNc8z5EGofEODoHViBX3MQK-oO7VUwS/view?usp=sharing"
+          <a
+            href={import.meta.env.VITE_RESUME}
             target="_blank"
+            rel="noopener noreferrer"
             className="group px-10 py-5 bg-white/5 border border-white/10 hover:border-brand-purple/50 text-white rounded-2xl font-bold tracking-wider transition-all duration-500 hover:bg-white/10 flex items-center justify-center gap-3 w-full sm:w-auto"
           >
             <MdOutlineFindInPage className="text-xl group-hover:text-brand-light transition-colors" />
             <span className="uppercase text-xs tracking-[0.2em]">View Dossier</span>
-          </Link>
+          </a>
         </motion.div>
       </motion.div>
 
